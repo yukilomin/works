@@ -1,0 +1,22 @@
+body {
+  background-color: #eeeeee;
+  text-align:  center;
+  margin: 0 auto;
+}
+
+.work_component {
+    max-width: 80%;
+    height: 500px;
+    background-color: #ffffff;
+    padding:  30px;
+    margin:30px auto;
+}
+
+.content_text {
+    text-align: left;
+}
+
+.video {
+    float: right;
+	margin: 0 80px 80px 0;
+}
