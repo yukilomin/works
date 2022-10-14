@@ -1,5 +1,5 @@
 {
-  "bool_value": True,
+  "bool_value": False,
   "string_value": "test value",
   "int_value": 12
 }
