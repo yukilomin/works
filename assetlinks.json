@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.beney.beneyapp",
+      "sha256_cert_fingerprints": [
+        "55:C3:C2:D5:F5:52:72:82:F0:B2:3F:0A:EA:08:B9:B8:14:6C:E4:2E:4D:3F:2D:49:D0:27:24:41:5C:EE:94:AB"
+      ]
+    }
+  }
+]
