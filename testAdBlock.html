@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdBlock Test</title>
+    <style>
+        .ad-container {
+            display: none; /* AdBlockがこの要素を非表示にするか確認する */
+        }
+    </style>
+</head>
+<body>
+    <div class="ad-container">
+        <p>これは広告です。</p>
+    </div>
+
+    <script>
+        // JavaScriptでのAdBlock確認
+        var adContainer = document.querySelector('.ad-container');
+        if (getComputedStyle(adContainer).display === 'none') {
+            console.log('AdBlockが広告をブロックしています。');
+        } else {
+            console.log('広告はブロックされていません。');
+        }
+    </script>
+</body>
+</html>
