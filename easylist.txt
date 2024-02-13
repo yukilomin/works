@@ -14,7 +14,7 @@
 !-----------------------General advert blocking filters-----------------------!
 ! *** easylist:easylist/easylist_general_block.txt ***
 ! asahi.com##.ad-1stbnr
-||asahi.com.com^
+||asahi.com^
 -ad-300x600-
 -ad-458x80.
 -ad-bottom-
