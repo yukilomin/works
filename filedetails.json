@@ -1,0 +1,113 @@
+{
+  "ovpn_file": [
+    {
+      "id": 0,
+      "file":"client
+      nobind
+      dev tun
+      remote-cert-tls server
+      
+      remote 10.0.2.2 1194 udp
+      
+      <key>
+      -----BEGIN PRIVATE KEY-----
+      MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDQYCM6BlrEHQR8
+      C6eylSr8IfHCYIDz64Mkm7eKbSHdQz6ibmqD7ovRfPtCkp2qCc07CrCyOlQ4C7IA
+      CE4U9KbtP6K3EjyUUO811qvi20oTZ5cYjW6eR1RpaBBSR6VRL9ismcnNn0ErtJcy
+      dGn8qcIFy3vUibtKWWEPcCn2adFp+sSx+3QZ+aR9xS35p4v3DJlJzVVpdB4kOMNU
+      58RmlFziAdpXplIKUIvij73/3ZSe78CCDrhcIm3ow4vUMytWkv04u2BSTFrPVrAh
+      ozAuNKYubKeDW80lsN8JG025Jb6VGZz1WmB4K/N0QGYHtSRuF5pvJP8LtL8AMa2h
+      Vn08qWClAgMBAAECggEATiB9lLflODqY/9lu2upK35XqizKbptjaptMrkd8xH0Cj
+      L0uu7CB4k+cEXgWSz7o1FLoBXhG4mfrollKG1ByWqcV+QJ250PI3fjwq3jfSIkxo
+      vm/o1bdw0sSNugva1AHYf355x3q6eKSRO/2h73XGpV2R5DJv4oR4e81WLmmmdtE9
+      0LPKCXJnSUcipNyBPSm3Dvp0Wxt3GxmU4gqAVRrES3edLnV32vxdE1gNMQXoyNGu
+      3Nz/ReE80kZfulrPkuchsrXv34ikkUPRPMk0tpXBPb0tDco5bYIRV4rQ7rKBNeXY
+      eJ8znDUZGsaEi4gqFmZIk8rB9tgFv4o0UFF3ox0z0QKBgQDqEWWfxphjaJMbBErN
+      EgWu7wpkWOXxDchI/AUy+wwCktdi4l8gWyXvBK+ru6OscH77KUt3ZtvfCbJAckCq
+      yGUFj7igGS/x87HGQ1N5ps0XnnWQDlvEC/reddv7kI9/9cRoswzzcnUzmA7fHXJZ
+      PGvxpE1aHWdkyzdzITWdTZlP6wKBgQDj5nR2TCpyLWygRe0J+QqJ6jo3z1aaNCU3
+      QcM/HnzgxCTq1I7D1AuQviZpGk/kRwCML5c+wthtvvzFL775Q/j+hGIypJ+DYlQq
+      f2U+GEcDANVZRSqiS3lryMEg99W22JoberCl3v3p/klJt5QfmQRPNuiWSWvZ5iG8
+      iXyD3wJ9rwKBgF02rmTRntA/zg19SRifq7m9okLSEEhN98vw6VUjGuZPegz8H2vw
+      QIwOLrNSV10Ns9Pr3wze3oLVBrKZjV01zt1HHfxL64cMSGivWSfiIFzekuzaevr4
+      1mAPSZrGOA96XUxgubCdjUUNsiZyQJ5+7HHfv5o6iXlfYGat+/737y0fAoGATxD4
+      HMal/0DVK/G2oDwftONnWU98uzkWJEqTg4V/S7ehGzutYDFj5c6ioto3F3qurPQh
+      4+tTjReyuHKtLeuwKhUhwHIuyTVHAAt8w4NGt7sFSdheRzoqIQPgRSDWq34QUTJK
+      sPFhZFoNcR7Yq/G5dgYVwXYtjcZys+d7JIEtaw8CgYBqouIceSaSTAHblyeyLR6R
+      kUx/xZU+oqjLm3aBhLGmDaVN1mgHeaeXxTTAo/Wg/3IICiucouL51u2xAqDcyuCI
+      vDiSzaNXk2/fdOi0bMq6Qo6LgA/A6NpeSeOtrf9OXW/FL0PZR7PD2U6YUiseX7GK
+      XrGbNxRjqIMpLhccKclM3g==
+      -----END PRIVATE KEY-----
+      </key>
+      <cert>
+      -----BEGIN CERTIFICATE-----
+      MIIDRTCCAi2gAwIBAgIRAKNVi18daM3kBUrgJYOQ778wDQYJKoZIhvcNAQELBQAw
+      DzENMAsGA1UEAwwEdGVzdDAeFw0yNDA0MDIwNjIyMDJaFw0yNjA3MDYwNjIyMDJa
+      MA8xDTALBgNVBAMMBHRlc3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+      AQDQYCM6BlrEHQR8C6eylSr8IfHCYIDz64Mkm7eKbSHdQz6ibmqD7ovRfPtCkp2q
+      Cc07CrCyOlQ4C7IACE4U9KbtP6K3EjyUUO811qvi20oTZ5cYjW6eR1RpaBBSR6VR
+      L9ismcnNn0ErtJcydGn8qcIFy3vUibtKWWEPcCn2adFp+sSx+3QZ+aR9xS35p4v3
+      DJlJzVVpdB4kOMNU58RmlFziAdpXplIKUIvij73/3ZSe78CCDrhcIm3ow4vUMytW
+      kv04u2BSTFrPVrAhozAuNKYubKeDW80lsN8JG025Jb6VGZz1WmB4K/N0QGYHtSRu
+      F5pvJP8LtL8AMa2hVn08qWClAgMBAAGjgZswgZgwCQYDVR0TBAIwADAdBgNVHQ4E
+      FgQUYWH8kCyWuVZm69kvnsufQ/bF24MwSgYDVR0jBEMwQYAUAd+wsznNF8b7KWHX
+      vClPHO1o+1+hE6QRMA8xDTALBgNVBAMMBHRlc3SCFB4bvCnPtFvLC27XHw3e3LtB
+      scJcMBMGA1UdJQQMMAoGCCsGAQUFBwMCMAsGA1UdDwQEAwIHgDANBgkqhkiG9w0B
+      AQsFAAOCAQEArY1p8Q1qP0hyssvj1epXKP9DHHsFtPSBmbDNQEx6ZZC9SGLyVfjI
+      6biiJwqJjTXVVrNkYbqFG75N8yPfJCRsugjXEZXKcxpMAj/1rzbksaZWN+SMlRyE
+      Tv1mJu3n7wsB9mysM5snfJP76jPRiN2NVTLXlKQcQiV8bg8HPv+BHJB2SyScpeKW
+      ppch2jeFyERi7lgsa0aYDgiEIY5T54bslyG5JnPQBlmBBh9giGbciDmeO+Tj7xKJ
+      KxmSBzCkGwRk/1bKDxqjrw4f7omxa03/DGAgXC2Uu4ONmee42nTTsCbUzzgfSXll
+      BviKjF03IGAhWT4cjW0DtCXI/bChWMZz2g==
+      -----END CERTIFICATE-----
+      </cert>
+      <ca>
+      -----BEGIN CERTIFICATE-----
+      MIIDNjCCAh6gAwIBAgIUHhu8Kc+0W8sLbtcfDd7cu0GxwlwwDQYJKoZIhvcNAQEL
+      BQAwDzENMAsGA1UEAwwEdGVzdDAeFw0yNDA0MDEwOTQwMzRaFw0zNDAzMzAwOTQw
+      MzRaMA8xDTALBgNVBAMMBHRlc3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+      AoIBAQDAef8wdvfTCAOYJ8RRzDy2wzsrEOsJK6RelqgycANfUxx0f59u5ODsUYly
+      anXtlPQf8N34ewQaHZDnf+abSEbL8UXJ6U+mT1q09D8/LIAF0DiipB7HnPMVQLlG
+      okkgrO+9H94K5ZR6R7fuhMHw02zQRyA+dHY+yuoAwdod5eY/+ZR4GXS8wge0dNXz
+      huVBTEniNQAiWnEspiadkyTwcVKl2spIel2pw+LtVybqI+17r070tgYrBfh/qOVH
+      M2JJ2fP+huXE8rVUYzJMziEpT7cGQIQMxLP7h7dhqaWW6QL/9qIgSukOXIJ0T1Ba
+      RrckwOkV0FrGLpQ2lQijSY4sM+n9AgMBAAGjgYkwgYYwHQYDVR0OBBYEFAHfsLM5
+      zRfG+ylh17wpTxztaPtfMEoGA1UdIwRDMEGAFAHfsLM5zRfG+ylh17wpTxztaPtf
+      oROkETAPMQ0wCwYDVQQDDAR0ZXN0ghQeG7wpz7Rbywtu1x8N3ty7QbHCXDAMBgNV
+      HRMEBTADAQH/MAsGA1UdDwQEAwIBBjANBgkqhkiG9w0BAQsFAAOCAQEABFPGdu4x
+      GxR+Ki1VhbOT37lknsbVcFLb/LVFNyMiFj4Aasf5WukUgDG8gt3oZ7zNJxcQyqtH
+      eYZtzvePwIBWdPIDvuQd8gKDRr6NwkNxkMPpuiR+EH1Ykeup+7DFmc2xUcpgptym
+      Aypm0wYG4AlvYchyc/g+i9ixTFHeSNFf+ynRUVb4FnkyaxGXuAnx6HXh3KEZmOmx
+      VBWLlraqHrlGCb/4ElbENg0DiljgjputsFaHqsYPOFuquiukfEAkd4Rj7afMvGik
+      KFK19OafCuckHkeqVjg1lj04mcrrVtiL1r7qLJnsEcY8h3tG5KjbPteodje3ff6Z
+      2wXArEUyw8aMcQ==
+      -----END CERTIFICATE-----
+      </ca>
+      key-direction 1
+      <tls-auth>
+      #
+      # 2048 bit OpenVPN static key
+      #
+      -----BEGIN OpenVPN Static key V1-----
+      afd75692e0780bdabb9c256c1c102846
+      7e859d9ea0f6e2244f81d1ebbd3e9217
+      c4c010e67534b5be320c2b465fdc84f9
+      db9039d6593fdef915f27aaf8552be55
+      7ff072d0e07aae611329e0828cd73f41
+      215c2eddd7c4f93ce44bfd6a09f17ec7
+      865626a2fd652eb8583b9e3705cacda6
+      8d0335ed991e653728f9cc0460340582
+      c92e036f586bfdf28ef09e25439897e3
+      4942683f1728698581d4cc3b7af67e15
+      3424559ed736804642aa2c532f7a4f7f
+      b49aa004605af461aebac4714142743b
+      f835f9ea5557d3f708061867b83caa89
+      ce5bf1d2c4f3c1703cde41b0c35baf6d
+      dd5bd684d267867594c05e0d2194aca8
+      8cbf97e6f8ba7a4cdedebf1280b43fac
+      -----END OpenVPN Static key V1-----
+      </tls-auth>
+      
+      redirect-gateway def1"},
+  ]
+}
