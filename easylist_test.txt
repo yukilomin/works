@@ -56995,14 +56995,6 @@ browsershots.org#@#.advert_area
 ||url.rw/*&a=
 ||url.rw/*&mid=
 ! 
-! Fixes
-! @@||cdn.plyvdo.live/scripts/$script
-! @@||freeplayervideo.com^$subdocument
-! @@||gogoplay5.com^$subdocument
-! @@||gomoplayer.com^$subdocument
-! @@||lshstream.xyz/hls/$xmlhttprequest
-! @@||msubload.com/sub/$xmlhttprequest
-! 
 /^https?:\/\/.*(com|net|top|xyz)\/(bundle|warning|style|bootstrap|brand|reset|jquery-ui|styles|error|logo|index|favicon|star|header)\.(png|css)\?[A-Za-z0-9]{30,}.*/$third-party
 /^https?:\/\/[0-9a-z]{5,}\.(digital|website|life|guru|space|uno|cfd)\/[a-z0-9]{6,}\//$script,third-party,xmlhttprequest,domain=~127.0.0.1|~bitrix24.life|~ccc.ac|~jacksonchen666.com|~lemmy.world|~localhost|~mempool.space|~scribble.ninja|~scribble.website|~spacepub.space|~traineast.co.uk
 /^https?:\/\/cdn\.[0-9a-z]{3,6}\.xyz\/[a-z0-9]{8,}\.js$/$script,third-party
@@ -57074,7 +57066,6 @@ browsershots.org#@#.advert_area
 ||centent.streamp1ay.
 ||cintent.streanplay.
 ! Test (Webkit Mobile/Desktop for Youtube)
-! @@||youtube.com/get_video_info?$xmlhttprequest,domain=music.youtube.com|tv.youtube.com
 ||m.youtube.com/get_midroll_$domain=youtube.com
 ! temp disabled, affecting some extensions/browsers
 ||www.youtube.com/get_midroll_$domain=youtube.com
@@ -57089,10 +57080,6 @@ browsershots.org#@#.advert_area
 ! https://ww1.123watchmovies.co/episode/euphoria-season-2-episode-6/
 ! vidoza.net
 $image,script,subdocument,third-party,xmlhttprequest,domain=vidoza.co|vidoza.net
-! @@$generichide,domain=vidoza.co|vidoza.net
-! @@||ajax.googleapis.com/ajax/libs/$script,domain=vidoza.co|vidoza.net
-! @@||cdn.vidoza.co/js/$script,domain=vidoza.co|vidoza.net
-! @@||cdnjs.cloudflare.com/ajax/libs/$script,domain=vidoza.co|vidoza.net
 ! govid.co
 $script,third-party,xmlhttprequest,domain=govid.co
 ! @@||ajax.googleapis.com/ajax/libs/$script,domain=govid.co
@@ -57886,16 +57873,6 @@ $popup,third-party,domain=123animes.mobi|1337x.buzz|720pstream.tv|adblockeronsta
 ! eporner
 /^https?:\/\/.*\.eporner\.com\/[0-9a-f]{10,}\/$/$script,domain=eporner.com
 ! thegay.com
-@@||thegay.com/assets//jwplayer-*/jwplayer.core.controls.html5.js|$domain=thegay.com
-@@||thegay.com/assets//jwplayer-*/jwplayer.core.controls.js|$domain=thegay.com
-@@||thegay.com/assets//jwplayer-*/jwplayer.js|$domain=thegay.com
-@@||thegay.com/assets//jwplayer-*/provider.hlsjs.js|$domain=thegay.com
-@@||thegay.com/assets/jwplayer-*/jwplayer.core.controls.html5.js|$domain=thegay.com
-@@||thegay.com/assets/jwplayer-*/jwplayer.core.controls.js|$domain=thegay.com
-@@||thegay.com/assets/jwplayer-*/jwplayer.js|$domain=thegay.com
-@@||thegay.com/assets/jwplayer-*/provider.hlsjs.js|$domain=thegay.com
-@@||thegay.com/upd/*/assets/preview*.js|$domain=thegay.com
-@@||thegay.com/upd/*/static/js/*.js|$domain=thegay.com
 ||thegay.com^$script,domain=thegay.com
 ! websocket ads
 $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube8.fr|xtube.com|youporn.com|youporngay.com
