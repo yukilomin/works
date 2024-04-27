@@ -38,6 +38,11 @@
 
 <body>
     <div class="content">
+        <p class="description">userAgent</p>
+        <p class="description" id="userAgent"></p>
+    </div>
+
+    <div class="content">
         <p class="description">新しいタブ（_blank）の確認</p>
         <a class="base-button" href="https://play.google.com/apps/publish?hl=ja" rel="noopener" target="_blank">
             <img alt="" class="icon-img"
@@ -106,6 +111,10 @@
             <span>app2</span>
         </a>
     </div>
+
+    <script>
+        document.getElementById('userAgent').innerHTML = navigator.userAgent
+    </script>
 </body>
 
 </html>
