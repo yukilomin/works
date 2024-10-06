@@ -4,5 +4,5 @@
 https://yukilomin.github.io/works/
 
 ## Android Tips
-- https://yukilomin.github.io/works/android_caution.html
-- https://yukilomin.github.io/works/android_sample.html
+- https://yukilomin.github.io/works/tips/android_caution.html
+- https://yukilomin.github.io/works/tips/android_sample.html
