@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>android_sample.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+<link rel="stylesheet" href="file:///Users/yukiko/work/tips/style.css" type="text/css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E9%80%A3%E6%90%BA%E9%A0%85%E7%9B%AE%E5%AE%9F%E8%A3%85%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E7%A2%BA%E8%AA%8D%E3%83%86%E3%82%B9%E3%83%88">連携項目/実装サンプル/確認テスト</h1>
+<h2 id="oss%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B">OSSライセンスを表示する</h2>
+<p>ライブラリを使用したら著作権表示をする</p>
+<ul>
+<li>
+<p>OSSライセンス表示のための公式ライブラリ<br>
+https://qiita.com/kurramkurram/items/4b32b9f03aa7fcbc7bf5</p>
+</li>
+<li>
+<p>動作確認時
+build.gradleのbuildTypesに isDebuggable=trueを指定しているとデバッグ用の表示になるので、<br>
+正しい表示を確認する場合はisDebuggable=falseとする</p>
+</li>
+</ul>
+<h2 id="api%E3%81%A7json%E8%BF%94%E5%8D%B4%E3%81%AE%E7%A2%BA%E8%AA%8D">APIでJSON返却の確認</h2>
+<p>API接続の共通部分ができているか等を確認するためのURL<br>
+https://yukilomin.github.io/works/testdata.json</p>
+<h2 id="pdf%E8%A1%A8%E7%A4%BA%E3%81%AE%E7%A2%BA%E8%AA%8D">PDF表示の確認</h2>
+<p>以下のURLをWebViewで読み込んで確認<br>
+https://yukilomin.github.io/works/pdfSample.pdf</p>
+<h2 id="webview%E3%81%AE%E5%8B%95%E4%BD%9C%E3%82%92%E7%A2%BA%E8%AA%8D">WebViewの動作を確認</h2>
+<p>以下のURLをWebViewで読み込んで確認<br>
+https://yukilomin.github.io/works/webviewtest.html</p>
+<h2 id="%E3%83%A9%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BAsvg%E3%81%AE%E5%A0%B4%E5%90%88">ランチャーアイコンのサイズ（SVGの場合）</h2>
+<ul>
+<li>背景用と前面用の２枚を用意する</li>
+<li>背景用の画像の上に前面用の画像が重なるイメージになる</li>
+</ul>
+<h3 id="%E8%83%8C%E6%99%AF%E7%94%A8%E7%94%BB%E5%83%8F">背景用画像</h3>
+<ul>
+<li>108×108で作成、SVGで出力する</li>
+<li>単色の場合は画像は無しで色コードでもOK</li>
+</ul>
+<h3 id="%E5%89%8D%E9%9D%A2%E7%94%A8%E7%94%BB%E5%83%8F">前面用画像</h3>
+<ul>
+<li>108×108で作成、SVGで出力する</li>
+<li>中心66×66内に画像を収め、背景は透過にする</li>
+</ul>
+<h3 id="%E3%83%A2%E3%83%8E%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%A0%E5%AF%BE%E5%BF%9C%E3%82%92%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88">モノクローム対応をする場合</h3>
+<ul>
+<li>前面用の画像のみ用意する</li>
+<li>背景色はシステムで自動で設定される</li>
+</ul>
+<h4 id="%E5%89%8D%E9%9D%A2%E7%94%A8%E7%94%BB%E5%83%8F">前面用画像</h4>
+<ul>
+<li>108×108で作成、SVGで出力する</li>
+<li>中心66×66内に画像を収め、背景は透過にする</li>
+<li>単一色で作成する</li>
+</ul>
+<p>※ 比率が守られていれば、サイズが大きい場合は自動調整されるため問題なし</p>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://developer.android.com/develop/ui/views/launch/icon_design_adaptive?_gl=1<em>1le2th[…]</em>_ga_6HH9YJMN9M*MTcxNTY2NTk0Ny4xLjAuMTcxNTY2NTk0Ny4wLjAuMA
+https://designpedia.jp/articles/51793</p>
+<h2 id="%E9%80%9A%E7%9F%A5%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BAsvg%E3%81%AE%E5%A0%B4%E5%90%88">通知アイコンのサイズ（SVGの場合）</h2>
+<ul>
+<li>SVGで出力する</li>
+<li>128*128px以上（大きい場合は自動調整されるため問題なし）</li>
+<li>白と透過で作成する</li>
+<li>アイコンの色コードを指定する</li>
+<li>まるく切り取られて表示されることを考慮する（画像が大きいと表示されない領域にかかっている場合があるので注意）</li>
+</ul>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://note.com/saawaaa/n/ned268a22567b</p>
+
+</body>
+</html>

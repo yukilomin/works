@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>android_caution.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+<link rel="stylesheet" href="file:///Users/yukiko/work/tips/style.css" type="text/css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E5%AE%9F%E8%A3%85%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D%E6%99%82%E3%81%AE%E6%B3%A8%E6%84%8F">実装/動作確認時の注意</h1>
+<h2 id="%E7%AB%AF%E6%9C%AB%E3%81%AE%E6%88%BB%E3%82%8B%E6%A9%9F%E8%83%BD">端末の戻る機能</h2>
+<p>iOSには無いため動作確認忘れがち・・</p>
+<h3 id="%E7%A2%BA%E8%AA%8D%E5%86%85%E5%AE%B9">確認内容</h3>
+<p>端末の機能で戻る操作</p>
+<ul>
+<li>
+<p>ジェスチャーナビゲーションの場合: 横にスワイプ</p>
+</li>
+<li>
+<p>3ボタンナビゲーションの場合: ◀︎ ボタンタップ</p>
+<img src="https://yukilomin.github.io/works/image/gesture_navgation.png" width="200">
+</li>
+</ul>
+<h3 id="%E5%AE%9F%E8%A3%85%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB">実装サンプル</h3>
+<p>基本的には１つ前の画面に戻る<br>
+戻る画面を変更したい場合のみ設定を入れる</p>
+<pre class="hljs"><code><div>@Compose
+fun Hoge() {
+    BackHandler {
+        //端末の戻る機能を使用した場合の処理
+    }
+}
+</div></code></pre>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://www.android.com/intl/ja_jp/articles/51/</p>
+<h2 id="%E9%80%9A%E7%9F%A5%E3%81%AE%E8%A8%B1%E5%8F%AF">通知の許可</h2>
+<p>Android13以降はデフォルトは通知OFFになった</p>
+<h3 id="%E7%A2%BA%E8%AA%8D%E5%86%85%E5%AE%B9">確認内容</h3>
+<p>Android13以降でアプリ起動時に通知ONにするダイアログは出す必要があるか？<br>
+ある場合は動作しているか？</p>
+<ul>
+<li>Android13以降: デフォルトは通知OFF</li>
+<li>Android13未満: デフォルトで通知ON</li>
+</ul>
+<h3 id="%E9%80%9A%E7%9F%A5%E3%82%92on%E3%81%AB%E3%81%99%E3%82%8B%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B%E5%AE%9F%E8%A3%85%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB">通知をONにするダイアログを入れる実装サンプル</h3>
+<ul>
+<li>AndroidManifest.xml</li>
+</ul>
+<pre class="hljs"><code><div>&lt;uses-permission android:name=&quot;android.permission.POST_NOTIFICATIONS&quot; /&gt;
+</div></code></pre>
+<ul>
+<li>Activity</li>
+</ul>
+<pre class="hljs"><code><div>
+@Compose
+fun Hoge() {
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.TIRAMISU) {
+        NotificationPermission()
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
+@Composable
+fun NotificationPermission() {
+    val context = LocalContext.current
+    val permission = Manifest.permission.POST_NOTIFICATIONS
+    val requestPermissionLauncher =
+        rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {}
+
+    LaunchedEffect(Unit) {
+        if (ContextCompat.checkSelfPermission(
+                context, permission
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissionLauncher.launch(permission)
+        }
+    }
+}
+</div></code></pre>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://developer.android.com/develop/ui/views/notifications/notification-permission?hl=ja&amp;_gl=1<em>1f7ek9v</em>_up<em>MQ..</em>_ga<em>ODg2MDkwMDAyLjE3Mjc0OTMwNDg.</em>_ga_6HH9YJMN9M*MTcyNzQ5MzA0Ny4xLjAuMTcyNzQ5MzA0Ny4wLjAuMTQ1ODgxNjI3NA..</p>
+<h2 id="%E3%82%B9%E3%83%97%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3">スプラッシュスクリーン</h2>
+<p>Android12以降からアプリ起動時にデフォルトでスプラッシュスクリーンが表示されるようになった</p>
+<h3 id="%E7%A2%BA%E8%AA%8D%E5%86%85%E5%AE%B9">確認内容</h3>
+<p>起動時のスプラッシュスクリーンはAndroid13以降の動作に統一する必要があるか？</p>
+<ul>
+<li>Android12未満: デフォルトで表示されないため独自に実装している</li>
+<li>Android13以降: デフォルトで表示される</li>
+</ul>
+<p>※ Android12未満を対象に実装しているアプリをAndroid13以降で確認すると、デフォルトと独自実装の2つのスプラッシュスクリーンが表示されるので注意</p>
+<h3 id="%E3%82%B9%E3%83%97%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%81%AE%E8%A1%A8%E7%A4%BA%E3%82%92%E5%90%88%E3%82%8F%E3%81%9B%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AE%E5%AE%9F%E8%A3%85%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB">スプラッシュスクリーンの表示を合わせる場合の実装サンプル</h3>
+<ul>
+<li>ライブラリ</li>
+</ul>
+<pre class="hljs"><code><div>androidx.core:core-splashscreen:${version}&quot;
+</div></code></pre>
+<ul>
+<li>themes.xml</li>
+</ul>
+<pre class="hljs"><code><div>&lt;style name=&quot;AppTheme.Splash&quot; parent=&quot;Theme.SplashScreen&quot;&gt;
+       &lt;!-- 背景色. 単色 --&gt;
+       &lt;item name=&quot;windowSplashScreenBackground&quot;&gt;@color/splash_background&lt;/item&gt;
+       &lt;!-- アイコン --&gt;
+       &lt;item name=&quot;windowSplashScreenAnimatedIcon&quot;&gt;@drawable/ic_splash&lt;/item&gt;
+       &lt;!-- プラッシュスクリーンを閉じた後に適用するstyle --&gt;
+       &lt;item name=&quot;postSplashScreenTheme&quot;&gt;@style/Theme.AppTheme
+       &lt;/item&gt;
+   &lt;/style&gt;
+</div></code></pre>
+<ul>
+<li>AndroidManifest.xml</li>
+</ul>
+<pre class="hljs"><code><div>&lt;activity
+   android:theme=&quot;@style/AppTheme.Splash&quot;
+</div></code></pre>
+<ul>
+<li>Activity</li>
+</ul>
+<pre class="hljs"><code><div>override fun onCreate(savedInstanceState: Bundle?) {
+   installSplashScreen() // superの前に追加
+   super.onCreate(savedInstanceState)
+}
+</div></code></pre>
+<h3 id="%E8%83%8C%E6%99%AF%E8%89%B2%E3%81%AE%E3%81%BF%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%A6icon%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">背景色のみ表示されてiconが表示されない場合</h3>
+<p>https://issuetracker.google.com/issues/205021357?pli=1#comment14</p>
+<ul>
+<li>
+<p>開発中、Android StudioからのRunで起動するとアイコンは表示されない場合がある</p>
+</li>
+<li>
+<p>startActivity(intent)で起動する場合はデフォルトではアイコンを表示しせず、背景のみ表示となる。<br>
+表示する場合は以下の対応を入れる。</p>
+<ul>
+<li>themes.xml(Android13以降)</li>
+</ul>
+<pre class="hljs"><code><div>&lt;style name=&quot;AppTheme.Splash&quot; parent=&quot;Theme.SplashScreen&quot;&gt;
+  &lt;item name=&quot;windowSplashScreenBackground&quot;&gt;@color/splash_background&lt;/item&gt;
+  &lt;item name=&quot;windowSplashScreenAnimatedIcon&quot;&gt;@drawable/ic_splash&lt;/item&gt;
+  &lt;item name=&quot;postSplashScreenTheme&quot;&gt;@style/Theme.AppTheme
+  &lt;/item&gt;
+  &lt;!-- (Android13以降)アイコンを表示するかどうかの制御追加 --&gt;
+  &lt;item name=&quot;android:windowSplashScreenBehavior&quot; tools:targetApi=&quot;33&quot;&gt;icon_preferred&lt;/item&gt;
+&lt;/style&gt;
+
+</div></code></pre>
+<ul>
+<li>Activity(Android13未満)</li>
+</ul>
+<pre class="hljs"><code><div>val intent = Intent(context, AppActivity::class.java)
+val options = Bundle()
+options.putInt(&quot;android.activity.splashScreenStyle&quot;, 1);
+context.startActivity(intent, options)
+</div></code></pre>
+</li>
+</ul>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://developer.android.com/develop/ui/views/launch/splash-screen?hl=ja<br>
+https://developer.android.com/develop/ui/views/launch/splash-screen/migrate?hl=ja#keep_the_custom_activity_for_branding</p>
+<h2 id="%E3%83%86%E3%83%BC%E3%83%9E%E5%88%A5%E3%82%A2%E3%83%97%E3%83%AA%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3">テーマ別アプリアイコン</h2>
+<p>Android 13 以降で ホーム画面のアイコンをモノクロで表示できるようになった</p>
+<h3 id="%E7%A2%BA%E8%AA%8D%E5%86%85%E5%AE%B9">確認内容</h3>
+<p>Android13以降で端末でテーマを設定してホーム画面を表示したときに、テーマの色のアイコンを表示させる必要があるか？<br>
+ある場合は表示されているか？</p>
+  <img src="https://yukilomin.github.io/works/image/theme_color.png" width="200">
+<h3 id="%E5%AE%9F%E8%A3%85">実装</h3>
+<p>実装しない場合は、端末にテーマを設定しても通常のアイコンが表示される</p>
+<ul>
+<li>lancher iconを設定しているxml</li>
+</ul>
+<pre class="hljs"><code><div>&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;background android:drawable=&quot;@drawable/ic_launcher_background&quot; /&gt;
+    &lt;foreground android:drawable=&quot;@drawable/ic_launcher_foreground&quot; /&gt;
+
+    &lt;!-- モノクロアイコン追加 --&gt;
+    &lt;monochrome android:drawable=&quot;@drawable/ic_launcher_monochrome&quot; /&gt;
+&lt;/adaptive-icon&gt;
+</div></code></pre>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://developer.android.com/about/versions/13/features?hl=ja#themed-app-icons
+https://developer.android.com/develop/ui/views/launch/icon_design_adaptive?hl=ja</p>
+<h2 id="edge%E2%88%92to%E2%88%92edge">Edge−to−edge</h2>
+<p>Android15からアプリはデフォルトでEdge−to−edgeになる</p>
+<h3 id="%E7%A2%BA%E8%AA%8D%E5%86%85%E5%AE%B9">確認内容</h3>
+<p>以下の端末で、ステータスバーとナビゲーションバーの表示を確認する</p>
+<ul>
+<li>Android15以降: デフォルトでEdge−to−edgeになる</li>
+<li>Android15未満: デフォルトでは対応していない</li>
+</ul>
+<h3 id="%E5%AE%9F%E8%A3%85">実装</h3>
+<ul>
+<li>
+<p>デフォルト</p>
+<img src="https://yukilomin.github.io/works/image/edge_to_edge_default.png" width="200">
+</li>
+</ul>
+<pre class="hljs"><code><div>    override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge() // Android15未満もedgeToEdgeに対応させる
+        super.onCreate(savedInstanceState)
+        setContent {
+            TestTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding -&gt;
+                    Greeting(
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+    }
+
+</div></code></pre>
+<ul>
+<li>
+<p>isNavigationBarContrastEnforcedの設定追加</p>
+<img src="https://yukilomin.github.io/works/image/edge_to_edge_after.png" width="200">
+</li>
+</ul>
+<pre class="hljs"><code><div>    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            window.isNavigationBarContrastEnforced = false // 追加
+            TestTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding -&gt;
+                    Greeting(
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+    }
+
+</div></code></pre>
+<ul>
+<li>
+<p>コンテンツをステータスバーに被らせたい場合</p>
+<img src="https://yukilomin.github.io/works/image/edge_to_edge_overlap.png" width="200">
+</li>
+</ul>
+<p>ScaffoldのinnerPaddingがinnerPaddingがシステムバーにコンテンツを被らないようにしているため、<br>
+Scaffoldを使用しない、またはinnerPaddingを調整する</p>
+<pre class="hljs"><code><div>    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            window.isNavigationBarContrastEnforced = false
+            TestTheme {
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    contentWindowInsets = WindowInsets(0.dp) // 追加
+                ) { innerPadding -&gt;
+                    Greeting(
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+    }
+</div></code></pre>
+<ul>
+<li>カメラの領域にも表示を被らせたくない場合<br>
+ScaffoldにdisplayCutoutPaddingを付与する</li>
+</ul>
+<pre class="hljs"><code><div>Scaffold(
+    modifier = Modifier.fillMaxSize().displayCutoutPadding()
+    ...
+</div></code></pre>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://developer.android.com/develop/ui/views/layout/edge-to-edge?hl=ja</p>
+<h2 id="%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E3%82%AB%E3%83%A9%E3%83%BC">ダイナミックカラー</h2>
+<p>ユーザーが端末に設定したカラー（ダイナミックカラー）をアプリに反映させることが可能</p>
+<h3 id="%E7%A2%BA%E8%AA%8D%E5%86%85%E5%AE%B9">確認内容</h3>
+<p>Android12以降では端末にテーマを設定した場合としていない場合とで確認する</p>
+<ul>
+<li>
+<p>Android12以降: ダイナミックカラーの設定可能</p>
+</li>
+<li>
+<p>Android12未満： ダークモードとライトモードのみ</p>
+<img src="https://yukilomin.github.io/works/image/theme_color.png" width="200">
+</li>
+</ul>
+<p>※ ダイナミックカラーを使用しないアプリの場合も、自動でダイナミックカラーが適用されていないか確認が必要</p>
+<h3 id="%E5%AE%9F%E8%A3%85">実装</h3>
+<ul>
+<li>Theme.kt にデフォルトで設定されている</li>
+</ul>
+<pre class="hljs"><code><div>    val colorScheme = when {
+        dynamicColor &amp;&amp; Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.S -&gt; {
+            val context = LocalContext.current
+            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+        }
+        darkTheme -&gt; DarkColorScheme
+        else -&gt; LightColorScheme
+    }
+
+</div></code></pre>
+<ul>
+<li>同じテーマのままダークモード/ライトモードの色にする場合<br>
+（例）青のライトモードのテーマを設定しているが、青のダークモードのテーマで画面を表示したい場合</li>
+</ul>
+<pre class="hljs"><code><div>    val colorScheme = when {
+        dynamicColor &amp;&amp; Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.S -&gt; {
+            dynamicLightColorScheme(context) // darkThemeを条件に入れずに指定
+        }
+        darkTheme -&gt; DarkColorScheme
+        else -&gt; LightColorScheme
+    }
+
+</div></code></pre>
+<ul>
+<li>システムバーのテキストカラーの変更方法</li>
+</ul>
+<pre class="hljs"><code><div>    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars =
+                isLightColor(colorScheme.background.toArgb())
+            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars =
+                isLightColor(colorScheme.background.toArgb())
+        }
+    }
+</div></code></pre>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://www.android.com/intl/ja_jp/articles/322/#section-1</p>
+
+</body>
+</html>
