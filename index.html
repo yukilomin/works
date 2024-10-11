@@ -11,39 +11,75 @@
     <h1>works</h1>
 
     <div class="work_component">
-        <video class="video" width="300" height="500" controls Autoplay=autoplay>
-            <source src="./video/weather.mov" type="video/mp4">
-        </video>
-        <div>
-            <h2><img src="./icon/weather_icon.png" height="28px" weight="28px" /> お天気アプリ</h2>
-            <div class="content">
-                <p>PlayStore公開<br>
-                    <a href="https://play.google.com/store/apps/details?id=com.lomin.weather"
-                        target="_blank">https://play.google.com/store/apps/details?id=com.lomin.weather</a>
-                </p>
-                <p><b>[使用外部サービス]</b><br>
-                    OpenWeather　（https://openweathermap.org/）<br>
-                    Webサービス by Yahoo! JAPAN （https://developer.yahoo.co.jp/sitemap/）</p>
-                <p><b>[アプリ内容]</b><br>
-                    選択した地域の天気予報を表示</p>
-            </div>
+        <div class="description">
+            <h2><img src="./icon/material_icon.png" height="28px" weight="28px"/>Material Color</h2>
+            <dev class="text">
+                <div>
+                    <p>
+                        <b>[アプリ内容]</b><br>
+                        Component（ボタン、カード等）を選択する際やテーマカラーを決める際に利用することを想定
+                        <ul>
+                            <li>複数のComponentを一覧で表示する</li>
+                            <li>テーマカラーを変更し、Componentに色を反映させる</li>
+                            <li>テーマはimport, export可能</li>
+                        </ul>
+                    </p>
+                </div>
+                <div>
+                    <b>[使用技術]</b>
+                    <ul>
+                        <li>Jetpack Compose</li>
+                        <li>DataStore</li>
+                        <li>Hilt</li>
+                        <li>EdgeToEdge対応</li>
+                        <li>Notification対応</li>
+                        <li>端末縦横でのNavigationBar位置変更</li>
+                    </ul>
+                </div>
+            </dev>
+            <img class="media" src="./image/material_landscape.png" />
+
+        </div>
+        <div class="demo">
+            <video class="media" controls autoplay>
+                <source src="./video/material.mov" type="video/mp4">
+            </video>
         </div>
     </div>
 
     <div class="work_component">
-        <video class="video" width="300" height="500" controls Autoplay=autoplay>
-            <source src="./video/colorCheck.mov" type="video/mp4">
-        </video>
-        <div>
+        <div class="description">
+            <h2><img src="./icon/weather_icon.png" height="28px" weight="28px" /> お天気アプリ</h2>
+            <dev class="text">
+            <p><b>[使用外部サービス]</b><br>
+                OpenWeather　（https://openweathermap.org/）<br>
+                Webサービス by Yahoo! JAPAN （https://developer.yahoo.co.jp/sitemap/）</p>
+            <p><b>[アプリ内容]</b><br>
+                選択した地域の天気予報を表示</p>
+            </dev>
+        </div>
+        <div class="demo">
+            <video class="media" controls autoplay>
+                <source src="./video/weather.mov" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="work_component">
+        <div class="description">
             <h2><img src="./icon/color_icon.png" height="28px" weight="28px" /> 色彩検定勉強アプリ</h2>
-            <div class="content">
-                <p>非公開</p>
-                <p><b>[アプリ内容]</b><br>
-                    色彩検定の問題と解答を表示<br>
-                    お気に入り登録、覚えたチェックをすることで、<br>
-                    お気に入りの問題のみを表示したり<br>
-                    覚えたチェックをしていない問題のみを表示する</p>
-            </div>
+            <dev class="text">
+             <p><b>[アプリ内容]</b><br>
+                色彩検定の問題と解答を表示<br>
+                お気に入り登録、覚えたチェックをすることで、<br>
+                お気に入りの問題のみを表示したり<br>
+                覚えたチェックをしていない問題のみを表示する</p>
+            </dev>
+        </div>
+        <div class="demo">
+            <video class="media" controls autoplay>
+                <source src="./video/colorCheck.mov" type="video/mp4">
+            </video>
         </div>
     </div>
     </div>
