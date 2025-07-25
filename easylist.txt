@@ -2,8 +2,8 @@
 ! Checksum: r37ZA7vYo1dyrCdLsGpsUA
 ! Version: 202402120130
 ! Title: EasyList
-! Last modified: 12 Feb 2024 01:30 UTC
-! Expires: 1 days (update frequency)
+! Last modified: 25 Jul 2025 03:36 UTC
+! Expires: 4 days (update frequency)
 ! Homepage: https://easylist.to/
 ! Licence: https://easylist.to/pages/licence.html
 !
