@@ -13,7 +13,6 @@
 !
 !-----------------------General advert blocking filters-----------------------!
 ! *** easylist:easylist/easylist_general_block.txt ***
--test-
 -ad-300x600-
 -ad-458x80.
 -ad-bottom-
