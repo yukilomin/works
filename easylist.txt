@@ -3,7 +3,7 @@
 ! Version: 20240212014
 ! Title: EasyList
 ! Last modified: 25 Jul 2025 03:40 UTC
-! Expires: 4 days (update frequency)
+! Expires: 0.01 days (update frequency)
 ! Homepage: https://easylist.to/
 ! Licence: https://easylist.to/pages/licence.html
 !
