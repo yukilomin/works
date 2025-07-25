@@ -3,7 +3,7 @@
 ! Version: 20240212014
 ! Title: EasyList
 ! Last modified: 25 Jul 2025 03:40 UTC
-! Expires: 0.01 days (update frequency)
+! Expires: 4 days (update frequency)
 ! Homepage: https://easylist.to/
 ! Licence: https://easylist.to/pages/licence.html
 !
@@ -13,6 +13,7 @@
 !
 !-----------------------General advert blocking filters-----------------------!
 ! *** easylist:easylist/easylist_general_block.txt ***
+-test1-
 -ad-300x600-
 -ad-458x80.
 -ad-bottom-
